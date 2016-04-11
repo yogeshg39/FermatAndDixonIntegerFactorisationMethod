@@ -1,3 +1,6 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -225,21 +228,34 @@ public class FermatAndDixon {
     		generatePrimes();
     		
 	    	
-    		int flag=1;
-    		while(flag!=0)
+    		
+    		while(true)
     		{
-    			Scanner in = new Scanner(System.in);
-        		System.out.println("Enter a Number");
-        		
-        		String inputStr = in.nextLine();
-        		
-        		BigIntNumber d=BigIntNumber.valueOf(inputStr);
-        		
     			System.out.println("Enter 1 for Fermat Factorisation Method");
     			System.out.println("Enter 2 for Dixon Factorisation Method");
     			System.out.println("Enter 0 to Exit");
     			
-    			flag=in.nextInt();
+    			
+    			Scanner in = new Scanner(System.in);
+    			int flag=in.nextInt();
+    			
+    			if(flag==0)
+    				break;
+    			
+        		System.out.print("Enter a Number\n");
+        		
+        		BufferedReader buf=new BufferedReader(new InputStreamReader(System.in));
+        		String inputStr = null;
+				try {
+					inputStr = buf.readLine();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+        		
+        		BigIntNumber d=BigIntNumber.valueOf(inputStr);
+        		
+    			
     			
     			if(flag==1)
     			{
