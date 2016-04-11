@@ -26,7 +26,7 @@ public class FermatAndDixon {
     
 	public static void display(BigIntNumber r1, BigIntNumber r2)
     {
-        System.out.println("\nRoots = "+ r1.toDecimalString() +" , "+ r2.toDecimalString());    
+        System.out.println("Roots = "+ r1.toDecimalString() +" , "+ r2.toDecimalString());    
     }
     
 	/** function to check if N is a perfect square or not **/
@@ -223,19 +223,21 @@ public class FermatAndDixon {
     public static void main(String[] params) {
 		 
     		generatePrimes();
-    		Scanner in = new Scanner(System.in);
-    		System.out.println("Enter a Number");
     		
-    		String inputStr = in.nextLine();
-    		
-    		BigIntNumber d=BigIntNumber.valueOf(inputStr);
 	    	
     		int flag=1;
     		while(flag!=0)
     		{
-    			
+    			Scanner in = new Scanner(System.in);
+        		System.out.println("Enter a Number");
+        		
+        		String inputStr = in.nextLine();
+        		
+        		BigIntNumber d=BigIntNumber.valueOf(inputStr);
+        		
     			System.out.println("Enter 1 for Fermat Factorisation Method");
     			System.out.println("Enter 2 for Dixon Factorisation Method");
+    			System.out.println("Enter 0 to Exit");
     			
     			flag=in.nextInt();
     			
@@ -246,7 +248,7 @@ public class FermatAndDixon {
     		    	Long endTime=System.nanoTime();
     		    	
     		    	double difference1 = (endTime - startTime)/1e6;
-    		    	System.out.println("Time for Fermat factorisation:"+difference1+"ms");
+    		    	System.out.println("Time for Fermat factorisation:"+difference1+"ms\n");
     		    	
     			}
     			else if(flag==2)
@@ -255,7 +257,7 @@ public class FermatAndDixon {
     		    	dixonFactor(d);
     		    	Long endTime=System.nanoTime();
     		    	double difference2 = (endTime - startTime)/1e6;
-    		    	System.out.println("Time for Dixon factorisation:"+difference2+"ms");
+    		    	System.out.println("Time for Dixon factorisation:"+difference2+"ms\n");
     			}
     			
     		}
